@@ -45,7 +45,7 @@ export default defineComponent({
             type: "continuous",
             seriesIndex: 0,
             min: 0,
-            max: 400,
+            max: 200,
           },
           {
             show: false,
@@ -60,6 +60,9 @@ export default defineComponent({
           {
             left: "left",
             text: "进出口客运量",
+            textStyle: {
+              fontSize: 30, // Set the font size here
+            },
           },
         ],
         tooltip: {
@@ -67,19 +70,30 @@ export default defineComponent({
         },
         xAxis: [
           {
+            interval: 1,
             data: dateList,
             axisLabel: {
               show: false, // 上面的图表隐藏x轴标签
             },
           },
           {
+            interval: 1,
             data: dateList,
             gridIndex: 1,
           },
         ],
         yAxis: [
-          {},
           {
+            splitLine: {
+              show: true,
+            },
+
+            min: 0,
+            max: 300,
+          },
+          {
+            min: 0,
+            max: 300,
             gridIndex: 1,
           },
         ],
@@ -130,6 +144,9 @@ export default defineComponent({
           {
             left: "left",
             text: "进口客运量",
+            textStyle: {
+              fontSize: 30, // Set the font size here
+            },
           },
         ],
         tooltip: {
@@ -200,6 +217,9 @@ export default defineComponent({
           {
             left: "left",
             text: "出口客运量",
+            textStyle: {
+              fontSize: 30, // Set the font size here
+            },
           },
         ],
         tooltip: {
@@ -268,7 +288,7 @@ export default defineComponent({
         </el-row>
       </el-col>
       <el-col :span="8">
-        <el-row style="flex-direction: column w-full" align="middle">
+        <el-row style="flex-direction: column" align="middle">
           <el-col>
             <div>
               <div class="shape-container">
@@ -278,6 +298,100 @@ export default defineComponent({
               </div>
             </div>
           </el-col>
+          <el-col class="w-full">
+            <el-row class="w-full bigbox mt-10 p-5" align="middle">
+              <el-col :span="8">
+                <el-row
+                  style="flex-direction: column"
+                  class="w-full"
+                  align="middle"
+                  ><el-col>进口:<span>99999</span></el-col>
+                  <el-col>同比:<span>8%</span></el-col>
+                </el-row>
+              </el-col>
+              <el-col :span="8">
+                <el-row
+                  style="flex-direction: column"
+                  class="w-full"
+                  align="middle"
+                  ><el-col><span class="text-3xl">9,999,999</span></el-col>
+                  <el-col>同比:<span>11%</span></el-col>
+                  <el-col>累计客运量</el-col>
+                </el-row>
+              </el-col>
+              <el-col :span="8">
+                <el-row
+                  style="flex-direction: column"
+                  class="w-full"
+                  align="middle"
+                  ><el-col>出口:<span>99999</span></el-col>
+                  <el-col>同比:<span>8%</span></el-col>
+                </el-row>
+              </el-col>
+            </el-row>
+          </el-col>
+          <el-col class="w-full">
+            <el-row class="w-full bigbox mt-10 p-5" align="middle">
+              <el-col :span="8">
+                <el-row
+                  style="flex-direction: column"
+                  class="w-full"
+                  align="middle"
+                  ><el-col>进口:<span>99999</span></el-col>
+                </el-row>
+              </el-col>
+              <el-col :span="8">
+                <el-row
+                  style="flex-direction: column"
+                  class="w-full"
+                  align="middle"
+                  ><el-col><span class="text-3xl">1,672,384</span></el-col>
+                  <el-col>今日客运量</el-col>
+                </el-row>
+              </el-col>
+              <el-col :span="8">
+                <el-row
+                  style="flex-direction: column"
+                  class="w-full"
+                  align="middle"
+                  ><el-col>出口:<span>99999</span></el-col>
+                </el-row>
+              </el-col>
+            </el-row>
+          </el-col>
+
+          <el-col class="w-full">
+            <el-row class="w-full bigbox mt-10 p-5" align="middle">
+              <el-col :span="8">
+                <el-row
+                  style="flex-direction: column"
+                  class="w-full"
+                  align="middle"
+                  ><el-col>进口:<span>99999</span></el-col>
+                  <el-col>同比:<span>8%</span> 环比:<span>-11%</span></el-col>
+                </el-row>
+              </el-col>
+              <el-col :span="8">
+                <el-row
+                  style="flex-direction: column"
+                  class="w-full"
+                  align="middle"
+                  ><el-col><span class="text-3xl">1,111,111</span></el-col>
+                  <el-col>同比:<span>8%</span> 环比:<span>-11%</span></el-col>
+                  <el-col>昨日客运量</el-col>
+                </el-row>
+              </el-col>
+              <el-col :span="8">
+                <el-row
+                  style="flex-direction: column"
+                  class="w-full"
+                  align="middle"
+                  ><el-col>出口:<span>99999</span></el-col>
+                  <el-col>同比:<span>8%</span> 环比:<span>-11%</span></el-col>
+                </el-row>
+              </el-col>
+            </el-row>
+          </el-col>
           <!-- <el-col><div ref="mychart3" class="charts"></div></el-col> -->
         </el-row>
       </el-col>
@@ -286,6 +400,12 @@ export default defineComponent({
 </template>
 
 <style lang="less" scoped>
+.bigbox {
+  background: linear-gradient(45deg, #2511dfdb, #a4d4d8f5);
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+}
 .contanier {
   height: 100vh;
   overflow: auto;
@@ -297,7 +417,7 @@ export default defineComponent({
 }
 .charts {
   width: 100%;
-  height: 550px;
+  height: 300px;
 }
 .triangle {
   width: 0;
