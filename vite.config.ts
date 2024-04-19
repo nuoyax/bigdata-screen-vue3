@@ -6,6 +6,10 @@ import vueJsx from "@vitejs/plugin-vue-jsx";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  publicPath:
+    process.env.NODE_ENV === "production"
+      ? "./" // Replace <REPOSITORY_NAME> with your GitHub repository name
+      : "/",
   plugins: [vue(), vueJsx()],
   resolve: {
     alias: {
