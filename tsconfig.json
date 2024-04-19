@@ -1,7 +1,8 @@
 {
     "compilerOptions": {
         "allowJs": true,
-        "noImplicitAny": false
+        "noImplicitAny": false,
+        "esModuleInterop": true
       },
   "files": [],
   "references": [
