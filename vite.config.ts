@@ -6,7 +6,7 @@ import vueJsx from "@vitejs/plugin-vue-jsx";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "",
+  base: "/bigdata-screen-vue3/",
   plugins: [vue(), vueJsx()],
   resolve: {
     alias: {
