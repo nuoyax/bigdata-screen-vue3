@@ -21,7 +21,6 @@ jobs:
 
       - name: Install pnpm
         run: npm install -g pnpm@8.15.7
-             echo "$(npm bin -g)" >> $GITHUB_PATH
 
       - name: Install dependencies
         run: pnpm install
